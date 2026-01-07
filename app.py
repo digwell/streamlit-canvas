@@ -33,7 +33,7 @@ def is_ollama_port_open():
         return False
 
 
-st.set_page_config(page_title="이미지 분류기", page_icon="🖼️")
+st.set_page_config(page_title="이미지 분류기", page_icon="🖼️", layout="wide")
 
 st.title("이미지 분류기 Streamlit App")
 st.write("이미지를 업로드하여 숫자나 문자를 인식하세요.")
@@ -81,7 +81,19 @@ if submit_button:
     predict_image = my_model.predict_image(selected_model, image_data)
 
     # 날짜+시각
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    import pytz
+    import requests
+
+    # 접속자 location에 따른 timezone을 사용
+    try:
+        geo_req = requests.get("http://ip-api.com/json/")
+        geo_info = geo_req.json()
+        tz_name = geo_info.get("timezone", "UTC")
+    except Exception:
+        tz_name = "UTC"
+
+    user_tz = pytz.timezone(tz_name)
+    now = datetime.now(user_tz).strftime("%Y-%m-%d %H:%M:%S %Z")
 
     # 이미지 (작게 출력)
     img_thumbnail = img.copy()
