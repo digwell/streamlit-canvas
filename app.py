@@ -1,11 +1,15 @@
+import os
 import socket
 from datetime import datetime
 
 import numpy as np
 import streamlit as st
+from dotenv import load_dotenv
 from PIL import Image
 
 from src.my_model import MyModel
+
+load_dotenv()
 
 
 @st.cache_resource
@@ -15,6 +19,13 @@ def get_model_instance():
 
 # AI 머신의 ollama 포트가 열려있는지 확인
 def is_ollama_port_open():
+    OLLAMA_HOST = os.getenv("OLLAMA_HOST")
+    OLLAMA_PORT = os.getenv("OLLAMA_PORT")
+
+    print(OLLAMA_PORT)
+
+    if OLLAMA_HOST is None or OLLAMA_PORT is None:
+        return False
     try:
         with socket.create_connection(("192.168.219.17", 11434), timeout=1):
             return True
