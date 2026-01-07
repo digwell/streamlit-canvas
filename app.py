@@ -33,9 +33,9 @@ def is_ollama_port_open():
         return False
 
 
-st.set_page_config(page_title="미션15", page_icon="🚀")
+st.set_page_config(page_title="이미지 분류기", page_icon="🖼️")
 
-st.title("필기 인식")
+st.title("이미지 분류기 Streamlit App")
 st.write("이미지를 업로드하여 숫자나 문자를 인식하세요.")
 
 with st.form("form1"):
