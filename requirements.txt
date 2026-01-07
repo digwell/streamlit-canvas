@@ -6,3 +6,4 @@ torchvision==0.24.1
 numpy==2.4.0
 requests==2.32.5
 Pillow==12.1.0
+python-dotenv
