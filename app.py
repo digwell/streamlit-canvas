@@ -34,7 +34,7 @@ def is_ollama_port_open():
 st.set_page_config(page_title="이미지 분류기", page_icon="🖼️", layout="wide")
 
 st.title("이미지 분류기 Streamlit App")
-st.write("이미지를 업로드하여 숫자나 문자를 인식하세요.")
+st.write("AI로 이미지 정체를 밝혀보자.")
 
 with st.form("form1"):
     uploaded_file = st.file_uploader(
