@@ -1,5 +1,13 @@
 # 이미지 분류기
 
+
+Streamlit link
+
+https://app-cdzw4ywzmei9fv2ruuygl7.streamlit.app/
+
+
+![App Screenshot](https://raw.githubusercontent.com/digwell/streamlit-canvas/main/image/screenshot.png)
+
 `huggingface`의 `google/vit-base-patch16-224` 로
 
 업로드한 이미지를 분류한다.
