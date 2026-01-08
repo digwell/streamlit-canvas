@@ -44,7 +44,6 @@ class MyModel:
             )
             if response.status_code == 200:
                 result = response.json()
-                print(result)
                 # Ollama 응답에서 결과 추출 (텍스트 중 숫자(0~9)만)
                 output = result.get("response", "").strip()
 
@@ -78,7 +77,6 @@ class MyModel:
         if isinstance(result, list) and len(result) > 0:
             # 상위 결과 반환z
             top_result = result[0]
-            print(top_result)
             return {
                 "label": top_result.get("label", "unknown"),
                 "score": top_result.get("score", 0.0),

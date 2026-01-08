@@ -22,8 +22,6 @@ def is_ollama_port_open():
     OLLAMA_HOST = os.getenv("OLLAMA_HOST")
     OLLAMA_PORT = os.getenv("OLLAMA_PORT")
 
-    print(OLLAMA_PORT)
-
     if OLLAMA_HOST is None or OLLAMA_PORT is None:
         return False
     try:
